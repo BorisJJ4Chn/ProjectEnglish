@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "pagination": {
+    "page_size": 10,
+    "initial_page": 1
+  },
+  "search_similarity": 0.75,
+  "words_path": "./src/words.json"
+}

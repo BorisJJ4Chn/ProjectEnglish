@@ -1,7 +1,7 @@
 from typing import List
 
 class Example:
-    def __init__(self, parent_word: 'Word', original_sentence: str, translated_meaning: str):
+    def __init__(self, parent_word: 'Word', original_sentence: str, translated_meaning: str) -> None:
         # 所属单词（Word对象）
         self.parentWord = parent_word
         
@@ -25,7 +25,7 @@ class Example:
 
 
 class Definition:
-    def __init__(self, parent_word: 'Word', pos: str = "", meaning: str = ""):
+    def __init__(self, parent_word: 'Word', pos: str = "", meaning: str = "") -> None:
         # 所属单词（Word对象）
         self.parentWord = parent_word
         
@@ -36,14 +36,14 @@ class Definition:
         self.meaning = meaning.strip() if isinstance(meaning, str) else ""
         
         # 例句列表
-        self.examples = []
+        self.examples: List[Example] = []
         
-    def add_example(self, example: Example):
+    def add_example(self, example: Example) -> None:
         """添加例句到列表"""
         if isinstance(example, Example) and example not in self.examples:
             self.examples.append(example)
 
-    def del_example(self, example: Example):
+    def del_example(self, example: Example) -> None:
         """删除例句"""
         if isinstance(example, Example) and example in self.examples:
             self.examples.remove(example)
@@ -73,12 +73,12 @@ class Word:
         # 单词释义列表（默认为空列表）
         self.definitions: List[Definition] = []
     
-    def add_definition(self, definition: Definition):
+    def add_definition(self, definition: Definition) -> None:
         """添加Definition对象到列表"""
         if isinstance(definition, Definition) and definition not in self.definitions:
             self.definitions.append(definition)
 
-    def del_definition(self, definition: Definition):
+    def del_definition(self, definition: Definition) -> None:
         """删除Definition对象"""
         if isinstance(definition, Definition) and definition in self.definitions:
             self.definitions.remove(definition)
